@@ -4,7 +4,7 @@ import net.ltgt.gradle.errorprone.CheckSeverity
 plugins {
   id 'com.android.library'
   id 'net.ltgt.errorprone'
-  id 'com.vanniktech.maven.publish'
+//  id 'com.vanniktech.maven.publish'
 }
 
 android {
@@ -32,10 +32,10 @@ android {
   }
 }
 
-mavenPublishing {
-  publishToMavenCentral(SonatypeHost.DEFAULT)
-  signAllPublications()
-}
+//mavenPublishing {
+//  publishToMavenCentral(SonatypeHost.DEFAULT)
+//  signAllPublications()
+//}
 
 dependencies {
   implementation libs.androidx.appcompat

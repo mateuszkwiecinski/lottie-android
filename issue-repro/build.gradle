@@ -8,7 +8,7 @@ android {
     compileSdk 33
     defaultConfig {
         applicationId "com.airbnb.lottie.issues"
-        minSdk 16
+        minSdk 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -25,4 +25,5 @@ android {
 dependencies {
     implementation project(':lottie')
     implementation libs.androidx.appcompat
+    implementation 'com.squareup.leakcanary:leakcanary-android:2.10'
 }
