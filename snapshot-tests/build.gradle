@@ -26,9 +26,6 @@ android {
       buildConfigField("String", "HappoApiKey", "\"" + System.getenv("LOTTIE_HAPPO_API_KEY") + "\"")
       buildConfigField("String", "HappoSecretKey", "\"" + System.getenv("LOTTIE_HAPPO_SECRET_KEY") + "\"")
     }
-    release {
-      minifyEnabled false
-    }
   }
 
   kotlinOptions {
@@ -46,6 +43,12 @@ android {
 
   composeOptions {
     kotlinCompilerExtensionVersion = versionFor(project, AndroidX.compose.compiler)
+  }
+}
+
+androidComponents {
+  beforeVariants(selector().all()) {
+    enabled = buildType == "debug"
   }
 }
 
