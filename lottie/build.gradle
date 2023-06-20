@@ -16,11 +16,6 @@ android {
     targetSdk 33
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
-  lintOptions {
-    abortOnError true
-    textReport true
-    textOutput 'stdout'
-  }
   testOptions {
     unitTests {
       includeAndroidResources = true

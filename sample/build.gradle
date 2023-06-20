@@ -35,11 +35,9 @@ android {
       minifyEnabled false
     }
   }
-  lintOptions {
-    ignore 'InvalidPackage'
-    ignore 'VectorDrawableCompat'
-    textReport true
-    textOutput 'stdout'
+  lint {
+    disable("InvalidPackage")
+    disable("VectorDrawableCompat")
     baseline file("lint-baseline.xml")
   }
   kotlinOptions {
