@@ -14,16 +14,6 @@ plugins {
 allprojects {
   def compileJavaVersion = JavaVersion.VERSION_17
   def targetJavaVersion = JavaVersion.VERSION_1_8
-  pluginManager.withPlugin("java") {
-    java {
-      toolchain {
-        languageVersion.set(JavaLanguageVersion.of(compileJavaVersion.majorVersion))
-      }
-    }
-    tasks.withType(JavaCompile).configureEach {
-      options.release.set(targetJavaVersion.majorVersion)
-    }
-  }
   pluginManager.withPlugin("org.jetbrains.kotlin.android") {
     kotlin {
       jvmToolchain(compileJavaVersion.majorVersion.toInteger())
@@ -35,8 +25,10 @@ allprojects {
   ["com.android.library", "com.android.application"].forEach { androidPlugin ->
     pluginManager.withPlugin(androidPlugin) {
       android {
-        sourceCompatibility targetJavaVersion
-        targetCompatibility targetJavaVersion
+        compileOptions {
+          sourceCompatibility targetJavaVersion
+          targetCompatibility targetJavaVersion
+        }
 
         lint {
           abortOnError true
